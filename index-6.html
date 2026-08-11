@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Typing Test Competition | Shankar Computer Institute</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#182238}
+.hero{background:linear-gradient(135deg,#071b49,#164aa4);color:#fff;text-align:center;padding:42px 18px}
+.hero h1{font-size:clamp(36px,9vw,60px);margin:10px 0 5px}.hero h2{color:#ffd84d;margin:0 0 12px}
+.wrap{max-width:850px;margin:auto;padding:18px}.card{background:#fff;border-radius:18px;padding:24px;margin:18px 0;box-shadow:0 6px 25px #071b4915}
+.info{background:#eef3ff;border-left:5px solid #123b8f;border-radius:10px;padding:15px;margin:8px 0}
+h2{color:#071b49}label{display:block;font-weight:bold;margin:14px 0 6px}
+input,select{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:9px;font-size:16px}
+button{width:100%;padding:16px;margin-top:20px;border:0;border-radius:10px;background:#d71920;color:#fff;font-size:18px;font-weight:bold}
+.success{display:none;text-align:center;background:#e9f9ee;border:1px solid #a5d9b3;border-radius:15px;padding:30px}
+.success .emoji{font-size:55px}.reg{font-size:24px;font-weight:bold;color:#071b49}
+footer{background:#071b49;color:#fff;text-align:center;padding:25px}
+</style>
+</head>
+<body>
+<header class="hero">
+<div>🇮🇳 INDEPENDENCE DAY SPECIAL</div>
+<h1>TYPING TEST</h1><h2>COMPETITION</h2>
+<p>Type Fast • Type Accurate • Be the Best!</p><strong>Shankar Computer Institute</strong>
+</header>
+<main class="wrap">
+<section class="card"><h2>🏆 Competition Details</h2>
+<div class="info"><b>📅 Date:</b> 15 August</div>
+<div class="info"><b>⌨️ Test:</b> English Typing Test</div>
+<div class="info"><b>⏱️ Duration:</b> 10 Minutes</div>
+<div class="info"><b>🏅 Eligibility:</b> Students of Shankar Computer Institute</div>
+</section>
+<section class="card" id="formCard"><h2>📝 Registration Form</h2>
+<p>Fill in your details carefully and click <b>Submit Registration</b>.</p>
+<form id="regForm">
+<label>Full Name *</label><input name="name" required placeholder="Enter your full name">
+<label>Course *</label><select name="course" required><option value="">Select course</option><option>ADCA</option><option>PGDCA</option><option>DCA</option><option>CCA</option><option>DTP</option><option>Tally</option><option>Other</option></select>
+<label>Batch *</label><input name="batch" required placeholder="e.g. Batch-12">
+<label>Roll Number *</label><input name="roll" required placeholder="Enter roll number">
+<label>Mobile Number *</label><input name="mobile" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number">
+<label>Typing Category *</label><select name="category" required><option value="">Select category</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select>
+<label>Email Address (Optional)</label><input name="email" type="email" placeholder="Enter email">
+<label style="font-weight:normal"><input type="checkbox" required style="width:auto;margin-right:7px"> I confirm that the information provided by me is correct and I agree to follow the competition rules.</label>
+<button type="submit">SUBMIT REGISTRATION</button>
+</form></section>
+<section class="success" id="success"><div class="emoji">🎉</div><h2>Registration Successful!</h2>
+<p>Thank you for registering for the <b>Typing Test Competition</b> at <b>Shankar Computer Institute</b>.</p>
+<p>Your Registration Number:</p><div class="reg" id="regNo"></div>
+<p>Please save this number for future reference.</p><p><b>We look forward to seeing you at the competition! 🏆</b></p></section>
+</main>
+<footer><b>Shankar Computer Institute</b><br>Learn Today, Lead Tomorrow</footer>
+<script>
+document.getElementById("regForm").addEventListener("submit",function(e){
+e.preventDefault();if(!this.checkValidity()){this.reportValidity();return;}
+let n=localStorage.getItem("typingCompetitionRegCount");n=n?parseInt(n)+1:1;
+localStorage.setItem("typingCompetitionRegCount",n);
+document.getElementById("regNo").textContent="SCI-TC-"+String(n).padStart(4,"0");
+document.getElementById("formCard").style.display="none";
+document.getElementById("success").style.display="block";
+window.scrollTo({top:0,behavior:"smooth"});
+});
+</script>
+</body></html>
