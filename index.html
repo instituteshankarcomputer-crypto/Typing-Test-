@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Typing Test Competition 2026 | Shankar Computer Institute</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#182238}header{background:linear-gradient(135deg,#071b49,#164aa4);color:#fff;text-align:center;padding:42px 18px}h1{font-size:clamp(38px,9vw,68px);margin:8px 0}header h2{color:#ffd84d}.wrap{max-width:950px;margin:auto;padding:18px}.card{background:#fff;border-radius:16px;padding:22px;margin:18px 0;box-shadow:0 5px 20px #0001}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.info{background:#eef3ff;padding:15px;border-left:5px solid #123b8f;border-radius:10px}.info b{display:block;font-size:12px}.info strong{font-size:19px}label{display:block;font-weight:bold;margin:12px 0 5px}input,select,textarea{width:100%;padding:12px;border:1px solid #ccd4e0;border-radius:8px;font-size:16px;box-sizing:border-box}.btn{width:100%;padding:15px;border:0;border-radius:9px;background:#d71920;color:#fff;font-weight:bold;font-size:18px;margin-top:16px}.success{display:none;background:#e9f9ee;border:1px solid #9bd2aa;padding:22px;border-radius:12px;text-align:center}.error{display:none;background:#fff0f0;color:#8b1717;border:1px solid #e0aaaa;padding:13px;border-radius:9px;margin-top:14px}.reg{font-size:23px;font-weight:bold;color:#071b49}footer{background:#071b49;color:#fff;text-align:center;padding:25px}
+</style></head><body>
+<header><div>🇮🇳 INDEPENDENCE DAY SPECIAL • 15 AUGUST 2026</div><h1>TYPING TEST</h1><h2>COMPETITION 2026</h2><p>Type Fast • Type Accurate • Be the Best!</p><b>Organised by Shankar Computer Institute</b></header>
+<main class="wrap">
+<section class="card"><div class="grid">
+<div class="info"><b>DATE</b><strong>15 August 2026</strong></div>
+<div class="info"><b>DURATION</b><strong>10 Minutes</strong></div>
+<div class="info"><b>LANGUAGE</b><strong>English</strong></div>
+<div class="info"><b>ELIGIBILITY</b><strong>All Students</strong></div></div></section>
+<section class="card"><h2>🏆 About the Competition</h2><p>Shankar Computer Institute is organising a Typing Test Competition to improve typing speed, accuracy, confidence and practical computer skills.</p></section>
+<section class="card"><h2>⌨️ Test Format</h2><ul><li>English typing</li><li>10 minutes</li><li>Approximately 400–500 words</li><li>Computer based</li><li>Speed measured in WPM</li><li>Accuracy considered for ranking</li></ul></section>
+<section class="card"><h2>🥇 Categories</h2><div class="grid"><div class="info"><b>BEGINNER</b><strong>20–30 WPM</strong></div><div class="info"><b>INTERMEDIATE</b><strong>30–40 WPM</strong></div><div class="info"><b>ADVANCED</b><strong>40+ WPM</strong></div></div></section>
+<section class="card"><h2>🏅 Prizes</h2><div class="grid"><div class="info"><b>🥇 1st</b><strong>Best Typist</strong></div><div class="info"><b>🥈 2nd</b><strong>Fastest Fingers</strong></div><div class="info"><b>🥉 3rd</b><strong>Rising Typist</strong></div></div><p>Certificates and special recognition may be provided.</p></section>
+<section class="card"><h2>📋 Rules</h2><ol><li>One 10-minute main test.</li><li>No mobile phones or outside assistance.</li><li>Do not change test settings or open other applications.</li><li>Speed and accuracy both matter.</li><li>Unfair practice may lead to disqualification.</li><li>Report 15 minutes before your allotted time.</li><li>Organising committee decision is final.</li></ol></section>
+<section class="card" id="registration"><h2>📝 Register Now</h2>
+<form id="regForm">
+<label>Full Name *</label><input name="name" required>
+<label>Course *</label><select name="course" required><option value="">Select course</option><option>ADCA</option><option>PGDCA</option><option>DCA</option><option>CCA</option><option>DTP</option><option>Tally</option><option>Other</option></select>
+<label>Batch *</label><input name="batch" required placeholder="e.g. Batch-12">
+<label>Roll Number *</label><input name="roll" required>
+<label>Mobile Number *</label><input name="mobile" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number">
+<label>Typing Category *</label><select name="category" required><option value="">Select category</option><option>Beginner (20–30 WPM)</option><option>Intermediate (30–40 WPM)</option><option>Advanced (40+ WPM)</option></select>
+<label>Email (optional)</label><input name="email" type="email">
+<label>Message (optional)</label><textarea name="message" rows="3"></textarea>
+<label><input type="checkbox" name="agree" required style="width:auto"> I confirm my information is correct and agree to the rules.</label>
+<button class="btn" id="submitBtn">SUBMIT REGISTRATION</button>
+</form><div id="error" class="error"></div>
+<div id="success" class="success"><div style="font-size:45px">🎉</div><h2>Registration Successful!</h2><p>Welcome to the Typing Test Competition 2026.</p><p>Your Registration Number:</p><div id="regNo" class="reg"></div><p>Please save this number. The institute will provide reporting time and seat details.</p></div>
+</section>
+<section class="card"><h2>📍 Venue</h2><b>Shankar Computer Institute</b></section>
+</main><footer><b>Shankar Computer Institute</b><br>Learn Today, Lead Tomorrow</footer>
+<script>
+const form=document.getElementById('regForm'),btn=document.getElementById('submitBtn'),err=document.getElementById('error');
+form.addEventListener('submit',e=>{
+ e.preventDefault(); err.style.display='none';
+ if(!form.checkValidity()){form.reportValidity();return}
+ if(typeof google==='undefined'||!google.script||!google.script.run){err.textContent='Please open the published Google Apps Script Web App link. Do not open the downloaded HTML file directly.';err.style.display='block';return}
+ btn.disabled=true;btn.textContent='SUBMITTING...';
+ const data={};new FormData(form).forEach((v,k)=>data[k]=v);
+ google.script.run.withSuccessHandler(r=>{
+   if(r&&r.success){form.style.display='none';document.getElementById('success').style.display='block';document.getElementById('regNo').textContent=r.registrationNumber;document.getElementById('success').scrollIntoView({behavior:'smooth'});}
+   else if(r&&r.duplicate){err.textContent='Already registered. Registration Number: '+r.registrationNumber;err.style.display='block';btn.disabled=false;btn.textContent='SUBMIT REGISTRATION';}
+   else{err.textContent='Registration could not be completed. Please try again.';err.style.display='block';btn.disabled=false;btn.textContent='SUBMIT REGISTRATION';}
+ }).withFailureHandler(e=>{
+   err.textContent='Server error: '+(e&&e.message?e.message:'Please check your Apps Script deployment.');err.style.display='block';btn.disabled=false;btn.textContent='SUBMIT REGISTRATION';
+ }).submitRegistration(data);
+});
+</script></body></html>
